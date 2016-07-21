@@ -10,6 +10,9 @@
 
 #include "GenericVisitor.h"
 
+/**
+ * Special visitor class that inherits generic visitor template
+ */
 class SpecialVisitor : public GenericVisitor<SpecialVisitor>
 {
 	friend class GenericVisitor<SpecialVisitor>;

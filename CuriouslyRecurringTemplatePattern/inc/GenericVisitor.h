@@ -13,6 +13,10 @@
 
 using namespace std;
 
+/**
+ * A generic visitor template class
+ * Which defines several methods of visit order
+ */
 template <typename Derived>
 class GenericVisitor
 {
@@ -44,22 +48,34 @@ public:
 		}
 	}
 
+	/**
+	 * Generic method which handle RED node
+	 */
 	void handle_RED(TreeNode* node)
 	{
 		cerr << "Generic handle RED\n";
 	}
 
+	/**
+	 * Generic method which handle BLUE node
+	 */
 	void handle_BLUE(TreeNode* node)
 	{
 		cerr << "Generic handle BLUE\n";
 	}
 
 private:
+	/**
+	 * Function to downcast generic class to derived class
+	 */
     Derived& derived()
     {
-        return *static_cast<Derived*>(this);
+        return static_cast<Derived&>(*this);
     }
 
+    /**
+     * Dispatch the node to call the handler
+     */
     void dispatch_node(TreeNode* node)
     {
         switch (node->kind) {
