@@ -5,6 +5,22 @@ project(mvp VERSION 0.1 LANGUAGES CXX)
 ## target definitions #########################################################
 ###############################################################################
 
+if(WIN32)
+	message(STATUS "#######################")
+	message(STATUS "# System OS = WINDOWS #")
+	message(STATUS "#######################")
+endif(WIN32)
+
+if(UNIX) 
+	message(STATUS "####################")
+	message(STATUS "# System OS = UNIX #")
+	message(STATUS "####################")
+endif(UNIX)
+
+###############################################################################
+## target definitions #########################################################
+###############################################################################
+
 file(GLOB SOURCES
  main.cpp
  presenter/ApplicationPresenter.cpp

@@ -5,9 +5,25 @@ project(op VERSION 0.1 LANGUAGES CXX)
 ## target definitions #########################################################
 ###############################################################################
 
+if(WIN32)
+	message(STATUS "#######################")
+	message(STATUS "# System OS = WINDOWS #")
+	message(STATUS "#######################")
+endif(WIN32)
+
+if(UNIX) 
+	message(STATUS "####################")
+	message(STATUS "# System OS = UNIX #")
+	message(STATUS "####################")
+endif(UNIX)
+
+###############################################################################
+## target definitions #########################################################
+###############################################################################
+
 file(GLOB SOURCES
  	main.cpp
- 	observer/Observer.cpp
+	observer/Observer.cpp
  	observer/ConcreteObserverA.cpp
  	observer/ConcreteObserverB.cpp
  	subject/Subject.cpp)
@@ -37,7 +53,7 @@ set_property(TARGET op PROPERTY CXX_STANDARD_REQUIRED ON)
 
 include_directories()
 link_directories()
-target_link_libraries(op )
+target_link_libraries()
 
 
 
