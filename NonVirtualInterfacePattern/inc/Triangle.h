@@ -54,7 +54,7 @@ namespace Mitrais
 			 * This method override the getArea method from the Shape class
 			 * @return The triangle area
 			 */
-			virtual double getArea() final;
+			virtual double getArea();
 	};
 }
 
