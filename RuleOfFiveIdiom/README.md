@@ -2,7 +2,7 @@
 ### Implementation of Rule of Five Pattern in C++. This project created for C++ Bootcamp Training in Mitrais.
 
 ### Rule of Five:
-The rule of five is a modern expansion of the rule of three. Firstly, the rule of three specifies that if a class implements any of the following functions, it should implement all of them:
+The rule of five is a modern expansion of the rule of three (started from C++11). Firstly, the rule of three specifies that if a class implements any of the following functions, it should implement all of them:
 
 * copy constructor
 * copy assignment operator
