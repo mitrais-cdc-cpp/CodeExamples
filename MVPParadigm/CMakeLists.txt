@@ -2,19 +2,15 @@ cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
 project(mvp VERSION 0.1 LANGUAGES CXX)
 
 ###############################################################################
-## target definitions #########################################################
+## os #########################################################################
 ###############################################################################
 
 if(WIN32)
-	message(STATUS "#######################")
-	message(STATUS "# System OS = WINDOWS #")
-	message(STATUS "#######################")
+	message(STATUS "#ENV: System OS = WINDOWS")
 endif(WIN32)
 
 if(UNIX) 
-	message(STATUS "####################")
-	message(STATUS "# System OS = UNIX #")
-	message(STATUS "####################")
+	message(STATUS "#ENV: System OS = UNIX")
 endif(UNIX)
 
 ###############################################################################

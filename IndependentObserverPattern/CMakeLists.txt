@@ -2,19 +2,15 @@ cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
 project(iop VERSION 0.1 LANGUAGES CXX)
 
 ###############################################################################
-## target definitions #########################################################
+## os #########################################################################
 ###############################################################################
 
 if(WIN32)
-	message(STATUS "#######################")
-	message(STATUS "# System OS = WINDOWS #")
-	message(STATUS "#######################")
+	message(STATUS "#ENV: System OS = WINDOWS")
 endif(WIN32)
 
 if(UNIX) 
-	message(STATUS "####################")
-	message(STATUS "# System OS = UNIX #")
-	message(STATUS "####################")
+	message(STATUS "#ENV: System OS = UNIX")
 endif(UNIX)
 
 ###############################################################################
@@ -24,7 +20,7 @@ endif(UNIX)
 file(GLOB SOURCES
  	main.cpp)
  
- message("Following sources found:")
+message(STATUS "#STEP: file-globbing")
 foreach(a ${SOURCES})
   message("${a}")
 endforeach()
@@ -46,6 +42,7 @@ set_property(TARGET iop PROPERTY CXX_STANDARD_REQUIRED ON)
 ###############################################################################
 ## dependencies ###############################################################
 ###############################################################################
+message(STATUS "#STEP: set dependencies")
 
 include_directories()
 link_directories()
@@ -55,6 +52,8 @@ target_link_libraries(iop )
 ###############################################################################
 ## clean ######################################################################
 ###############################################################################
+message(STATUS "#STEP: set custom commands")
+
 if(UNIX)
     add_custom_target (distclean @echo cleaning generated cmake-files)
     add_custom_command(
