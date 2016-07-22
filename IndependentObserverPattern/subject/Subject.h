@@ -1,10 +1,3 @@
-/*
- * Subject.h
- *
- *  Created on: Jul 18, 2016
- *      Author: developer
- */
-
 #ifndef SUBJECT_SUBJECT_H_
 #define SUBJECT_SUBJECT_H_
 
