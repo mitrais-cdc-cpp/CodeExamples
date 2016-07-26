@@ -6,7 +6,7 @@ project(rof VERSION 0.1 LANGUAGES CXX)
 ###############################################################################
 
 file(GLOB SOURCES
- 	src/RuleOfFiveIdiom.cpp)
+ 	main.cpp)
  
  message("Following sources found:")
 foreach(a ${SOURCES})
