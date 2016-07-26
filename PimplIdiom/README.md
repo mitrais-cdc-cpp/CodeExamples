@@ -19,5 +19,17 @@ and most details can be hidden in another file.
 This is important for providing binary code compatibility through different versions of a shared library, 
 for example.
 
+### Creating steps
+- Create a forward declaration INSIDE the class within private access (e.g. struct Impl;)
+- Declare a pointer to forward declared class (e.g. Impl* pimpl;)
+- Remove all existing private member and function declarations
+- Create a struct/class and insert all removed private member and functions
+- Edit the existing implementation to direct read or write to the member through the "pimpl" (see: Timespan.cpp)
+- Make sure to delete the pimpl pointer!
+- Make sure that "Rule of 5 Idiom" is implemented
+- Provide strong exception guarantee with "Copy & Swap Idiom"
+
+
 ### Sources:
 * https://en.wikipedia.org/wiki/Opaque_pointer
+* https://www.youtube.com/watch?v=jYThYohGMqw
