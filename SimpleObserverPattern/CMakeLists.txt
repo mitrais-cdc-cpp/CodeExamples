@@ -49,7 +49,7 @@ set_property(TARGET op PROPERTY CXX_STANDARD_REQUIRED ON)
 
 include_directories()
 link_directories()
-target_link_libraries()
+target_link_libraries(op )
 
 
 ###############################################################################
