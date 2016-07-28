@@ -1,0 +1,26 @@
+Overview:
+
+A massive backend processing may block the UI interaction so the user shall wait until the process is finished before doing any other action to the UI.
+Unfortunately, that situation is unacceptable when the user expects being able to do something else when waiting for the completion.
+
+There is a approach to make the UI still responsive for user interaction when the backend processing being performed, i.e. perform asynchronous processing. 
+
+this code is intended to demonstrate of an approach to make the UI still responsive (user can do something on it) 
+while the app is performing background processing. It adopts multithreading approach using pthread.
+
+Technical keywords:
+threading - to perform long running background processing.
+callback function (where the background process can pass a message to the UI so the user gets informed about what is going on)
+
+Technical approach highlight:
+1. provide a UI control (button) 
+2. provide event handler of that button to invoke a long running background processing.
+3. as the UI adopts GTK, the handler shall be make static (static method).
+4. compose a method which performs long running background processing. The signature is static void *methodName(void *argsName)
+5. on the button click handler, initiate a thread which calls the method (which was created on step 4).
+6. provide a method (informUI) at the view level which accepts a message. It will display the message to the UI. The signature is void methodName(const char* message)
+7. pass the informUI method to the backend processing as a callback function. The argument signature shall be aligned with the informUI method, i.e. void(*funcToInformUI) (const char*)
+8. from the background, call the callback function to inform the message to the UI.
+
+
+ 
