@@ -16,18 +16,18 @@ namespace Mitrais
 	class TextWritter
 	{
 		public:
-			TextWritter(TDBConnector &connector)
+			TextWritter(TDBConnector & connector)
 			: _connector(connector)
 			{
 			}
 
-			void writeContentToDB(std::string &content)
+			void writeContentToDB(std::string & content)
 			{
 				_connector.inserContent(content);
 			}
 
 		private:
-			TDBConnector _connector;
+			TDBConnector & _connector;
 	};
 }
 
