@@ -23,10 +23,10 @@ namespace Mitrais
 
 			/**
 			 * Default constructor
-			 * @param connector: A reference for database connector class
+			 * @param connector: A pointer for database connector class
 			 */
-			TextWritter(TDBConnector* connector)
-			: _connector(connector)
+			TextWritter(TDBConnector connector)
+			: _connector( new TDBConnector(connector))
 			{
 			}
 
@@ -35,18 +35,19 @@ namespace Mitrais
 			 * @param other
 			 */
 			TextWritter(const TextWritter & other)
-			: _connector(new TDBConnector{*(other._connector)})
+			: _connector(new TDBConnector(*(other._connector)))
 			{
 			}
 
 			/**
 			 * Assignment operator
 			 * @param other
-			 * @return
+			 * @return this object
 			 */
-			TextWritter operator = (TextWritter & other)
+			const TextWritter operator = (const TextWritter & other)
 			{
-				swap(*this, other);
+				TextWritter<TDBConnector> temp(other);
+				temp.swap(*this);
 
 				return *this;
 			}
@@ -76,7 +77,8 @@ namespace Mitrais
 			 */
 			TextWritter & operator = (TextWritter && other)
 			{
-				swap(*this, other);
+				TextWritter<TDBConnector> temp(other);
+				temp.swap(*this);
 
 				return *this;
 			}
@@ -90,12 +92,21 @@ namespace Mitrais
 				_connector->inserContent(content);
 			}
 
-			friend void swap(TextWritter & first, TextWritter & second)
+			/**
+			 * Swap method
+			 * @param writer: Address of writer object
+			 */
+			void swap(TextWritter & writer) throw()
 			{
-				std::swap(first._connector, second._connector);
+				std::swap(this->_connector, writer._connector);
 			}
+
 		private:
-			TDBConnector* _connector;
+
+			/**
+			 * The pointer of database connector
+			 */
+			TDBConnector* _connector = nullptr;
 
 	};
 }
