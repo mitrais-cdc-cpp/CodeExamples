@@ -17,13 +17,25 @@ int main(int argc, char* argv[])
 {
 	DBConnector connector("localhost", 8001, "DbContent");
 
-	TextWritter<DBConnector> writter(connector);
+	TextWritter<DBConnector> writter(&connector);
 
 	std::string content1("Test Content 1");
 	writter.writeContentToDB(content1);
 
 	std::string content2("Test Content 2");
 	writter.writeContentToDB(content2);
+
+	// try to create other writter
+	// using copy constructor
+	TextWritter<DBConnector> writter2(writter);
+
+	// using assignment operator
+	TextWritter<DBConnector> writter3(&connector);
+
+	writter3 = writter2;
+	writter3.writeContentToDB(content1);
+	writter2.writeContentToDB(content2);
+
 
 	return 0;
 }
