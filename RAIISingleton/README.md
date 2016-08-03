@@ -188,9 +188,9 @@ OpenFile::instance("file.txt")->readLine();
 ```
 
 ### Common Uses of RAII
-When it comes to opening and closing files, std::fstream already has an RAII type of design because it closes itself in its destructor.
+When it comes to opening and closing files, `std::fstream` or `std::ofstream` already has an RAII type of design because it closes itself in its destructor.
 
-The Boost library uses RAII for locking and unlocking with classes like boost::lock_guard and boost::interprocess::scoped_lock.
+The Boost library uses RAII for locking and unlocking with classes like `boost::lock_guard` and `boost::interprocess::scoped_lock`.
 
 ### RAII can use for
 1. Reading file

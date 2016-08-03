@@ -1,34 +1,24 @@
 #ifndef _RAAISINGLETON_OPENFILE_H_
 #define _RAAISINGLETON_OPENFILE_H_
 
+#include <mutex>
 #include <iostream>
-#include <cstdio>
+#include <string>
+#include <fstream>
+#include <stdexcept>
 
- // exceptions
- class file_error { } ;
- class open_error : public file_error { } ;
- class close_error : public file_error { } ;
- class write_error : public file_error { } ;
-
- class File
- {
+class File
+{
  public:
-     File( const char* filename );
-
+     static File* getInstance();
+     void write(const std::string& message);
      ~File();
 
-     void write( const char* str);
-
-     void write( const char* buffer, std::size_t num_chars );
-
  private:
-     std::FILE* m_file_handle ;
-
-     // copy and assignment not implemented; prevent their use by
-     // declaring private.
-     File( const File & ) ;
-     File & operator=( const File & ) ;
- } ;
-
+     static File * instance;
+     File();
+     File(File const&);
+     void operator=(File const&);
+ };
 
 #endif // _RAAISINGLETON_OPENFILE_H_

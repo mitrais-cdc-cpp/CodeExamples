@@ -1,34 +1,44 @@
 #include "../inc/File.h"
 
+File * File::instance = 0;
 
-File::File( const char* filename ):
-         m_file_handle(std::fopen(filename, "w+"))
+File::File()
 {
-	 if( m_file_handle == NULL )
-	 {
-		 throw open_error() ;
-	 }
+
 }
 
 File::~File()
 {
-	std::fclose(m_file_handle) ;
+
 }
 
-void File::write( const char* str )
+File* File::getInstance()
 {
-	 if( std::fputs(str, m_file_handle) == EOF )
-	 {
-		 throw write_error() ;
-	 }
- }
+	if (instance == 0)
+	{
+		instance == new File;
+	}
 
-void File::write( const char* buffer, std::size_t num_chars )
+	return instance;
+}
+
+void File::write(const std::string & message)
 {
-	 if( num_chars != 0
-		 &&
-		 std::fwrite(buffer, num_chars, 1, m_file_handle) == 0 )
-	 {
-		 throw write_error() ;
-	 }
+    // mutex to protect file access (shared across threads)
+    static std::mutex mutex;
+
+    // lock mutex before accessing file
+    std::lock_guard<std::mutex> lock(mutex);
+
+    // try to open file
+    std::ofstream file("example.txt");
+    if (!file.is_open())
+        throw std::runtime_error("unable to open file");
+
+    // write message to file
+    file << message << std::endl;
+
+    // file will be closed 1st when leaving scope (regardless of exception)
+    // mutex will be unlocked 2nd (from lock destructor) when leaving
+    // scope (regardless of exception)
 }
