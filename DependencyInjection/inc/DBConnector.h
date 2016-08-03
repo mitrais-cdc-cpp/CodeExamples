@@ -14,17 +14,45 @@
 using namespace std;
 namespace Mitrais
 {
+	/**
+	 * A sample class for database connector
+	 */
 	class DBConnector
 	{
 		public:
+			/**
+			 * Default constructor
+			 * @param dbHost: Database host
+			 * @param dbPort: Database port
+			 * @param dbName: Database name
+			 */
 			DBConnector(const std::string &dbHost, const int &dbPort, const std::string &dbName);
+
+			/**
+			 * Default destructor
+			 */
 			~DBConnector();
 
-			void inserContent(std::string &content);
+			/**
+			 * A method to insert content
+			 * @param content: string content
+			 */
+			bool inserContent(std::string &content);
 
 		private:
+			/**
+			 * Database host
+			 */
 			const std::string _dbHost;
+
+			/**
+			 * Database port
+			 */
 			const int _dbPort;
+
+			/**
+			 * Database name
+			 */
 			const std::string _dbName;
 	};
 }

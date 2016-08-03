@@ -15,27 +15,37 @@
 using namespace Mitrais;
 int main(int argc, char* argv[])
 {
-	DBConnector connector("localhost", 8001, "DbContent");
+	// Create the connector object connectorA and connectorB
+	DBConnector connectorA("localhost", 8001, "DbContent");
+	DBConnector connectorB("175.19.14.151", 8009, "DbContent");
 
-	TextWritter<DBConnector> writter(connector);
+	// Create the writer object and inject the connectorA object into it
+	TextWritter<DBConnector> writer1(connectorA);
 
-	std::string content1("Test Content 1");
-	writter.writeContentToDB(content1);
+	// Try to call method writeContentToDB from writer1
+	std::string content1("Test Content 1, written by writer 1");
+	writer1.writeContentToDB(content1);
 
-	std::string content2("Test Content 2");
-	writter.writeContentToDB(content2);
+	// Try to create other writer object using copy constructor from writer1
+	TextWritter<DBConnector> writer2(writer1);
 
-	// try to create other writter
-	// using copy constructor
-	TextWritter<DBConnector> writter2(writter);
-	writter2.writeContentToDB(content2);
+	// Try to call method writeContentToDB from writer2
+	std::string content2("Test Content 2, written by writer 2");
+	writer2.writeContentToDB(content2);
 
-	// using assignment operator
-	TextWritter<DBConnector> writter3(connector);
+	// Create the writer3 object and inject connectorB into it
+	TextWritter<DBConnector> writer3(connectorB);
 
-	writter3 = writter2;
-	writter3.writeContentToDB(content1);
+	// Try to call method writeContentToDB from writer3
+	std::string content3("Test Content 3, written by writer 3");
+	writer3.writeContentToDB(content3);
 
+	// Assign writer3 to writer2 using assignment operator
+	writer3 = writer2;
+
+	// Try to call method writeContentToDB from writer3
+	std::string content4("");
+	writer3.writeContentToDB(content4);
 	return 0;
 }
 

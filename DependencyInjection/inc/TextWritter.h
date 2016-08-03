@@ -25,7 +25,7 @@ namespace Mitrais
 			 * Default constructor
 			 * @param connector: A pointer for database connector class
 			 */
-			TextWritter(TDBConnector connector)
+			TextWritter(TDBConnector & connector)
 			: _connector( new TDBConnector(connector))
 			{
 			}
