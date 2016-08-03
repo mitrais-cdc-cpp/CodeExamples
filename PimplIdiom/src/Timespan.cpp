@@ -1,4 +1,4 @@
-#include "Timespan.h"
+#include "../inc/Timespan.h"
 
 struct Timespan::Impl
 {
@@ -18,14 +18,13 @@ struct Timespan::Impl
 	int m_seconds;
 };
 
-Timespan::Timespan(int ticks_) : /*m_hours(0), m_minutes(0), m_seconds(ticks_)*/ pimpl(new Impl(ticks_))
+Timespan::Timespan(int ticks_)
+: pimpl(nullptr)
 {
-	//normalize();
 }
 
-Timespan::Timespan(int h_, int m_, int s_): /*m_hours(h_), m_minutes(m_), m_seconds(s_)*/ pimpl(new Impl(h_, m_, s_))
+Timespan::Timespan(int h_, int m_, int s_): pimpl(new Impl(h_, m_, s_))
 {
-	//normalize();
 }
 
 /* Rule of 5 - dtor */
@@ -65,33 +64,24 @@ Timespan& Timespan::operator=(const Timespan& other_)
 
 int Timespan::ticks() const
 {
-	//return (m_hours * 3600) + (m_minutes * 60) + m_seconds;
 	return (pimpl->m_hours * 3600) + (pimpl->m_minutes * 60) + pimpl->m_seconds;
 }
 
 int Timespan::hours() const
 {
-	//return m_hours;
 	return pimpl->m_hours;
 }
 int Timespan::minutes() const
 {
-	//return m_minutes;
 	return pimpl->m_minutes;
 }
 int Timespan::seconds() const
 {
-	//return m_seconds;
 	return pimpl->m_seconds;	
 }
 
 void Timespan::setTicks(int ticks_)
 {
-	//m_hours = 0;
-	//m_minutes = 0;
-	//m_seconds = ticks_;
-	//normalize();
-
 	pimpl->m_hours = 0;
 	pimpl->m_minutes = 0;
 	pimpl->m_seconds = ticks_;
@@ -101,27 +91,18 @@ void Timespan::setTicks(int ticks_)
 
 void Timespan::setHours(int h_)
 {
-	//m_hours = h_;
-	//normalize();
-
 	pimpl->m_hours = h_;
 	pimpl->normalize();
 }
 
 void Timespan::setMinutes(int m_)
 {
-	//m_minutes = m_;
-	//normalize();
-
 	pimpl->m_minutes = m_;
 	pimpl->normalize();
 }
 
 void Timespan::setSeconds(int s_)
 {
-	//m_seconds = s_;
-	//normalize();
-
 	pimpl->m_seconds = s_;
 	pimpl->normalize();
 }
@@ -133,10 +114,4 @@ void Timespan::Impl::normalize()
 	m_hours += m_minutes / 60;
 	m_minutes %= 60;
 	m_seconds %= 60;
-}
-
-std::ostream& operator<<(std::ostream& os, const Timespan& ts)
-{
-	/* Dont need to be changed, we using the public interface! */
-	os << ts.hours() << ":" << ts.minutes() << ":" << ts.seconds();
 }

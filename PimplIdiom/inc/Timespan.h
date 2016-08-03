@@ -16,7 +16,7 @@ class Timespan
 		Timespan& operator=(const Timespan& other_); 
 		
 		
-		/* publi interface */
+		/* public interface */
 		int ticks() const;
 		int hours() const;
 		int minutes()const;
@@ -29,24 +29,8 @@ class Timespan
 
 	private:
 
-		/* ... here it starts
-		 * maybe somebody decide, probably not the best implementation with 3 integers.
-		*/
-		//void normalize();
-		//int m_hours;
-		//int m_minutes;
-		//int m_seconds;
-		//int m_ticks;
-		
-		/*wouldnt it be nice to really change the implementation and seperate it without recompiling?*/
-		/*instead of having 3 integers declared, we declare a pointer*/
-
 		struct Impl;
-		Impl * pimpl;	// pointer size is always 8Bytes (x64) 
-		
-				
+		Impl * pimpl;	// pointer size is always 8Bytes (x64)
 };
-
-std::ostream& operator<<(std::ostream& os, Timespan const& ts);
 
 #endif // _PIMPL_TIMESPAN_H_
