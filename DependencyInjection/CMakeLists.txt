@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
-project(op VERSION 0.1 LANGUAGES CXX)
+project(DI VERSION 0.1 LANGUAGES CXX)
 
 ###############################################################################
 ## target definitions #########################################################

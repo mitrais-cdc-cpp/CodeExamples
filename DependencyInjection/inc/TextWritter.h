@@ -87,9 +87,10 @@ namespace Mitrais
 			 * Write content to database
 			 * @param content
 			 */
-			void writeContentToDB(std::string & content)
+			bool writeContentToDB(std::string & content)
 			{
-				_connector->inserContent(content);
+				bool status = _connector->inserContent(content);
+				return status;
 			}
 
 			/**
