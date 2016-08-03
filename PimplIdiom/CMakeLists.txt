@@ -7,7 +7,7 @@ project(pimpl VERSION 0.1 LANGUAGES CXX)
 
 file(GLOB SOURCES
  	main.cpp
-	Timespan.cpp)
+	src/Timespan.cpp)
  
  message("Following sources found:")
 foreach(a ${SOURCES})
