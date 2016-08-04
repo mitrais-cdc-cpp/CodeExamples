@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1.0 FATAL_ERROR)
-project(RAIISingleton VERSION 0.1 LANGUAGES CXX)
+project(SingletonC++11 VERSION 0.1 LANGUAGES CXX)
 
 set(_ECLIPSE_VERSION "4.5")
 
@@ -23,7 +23,7 @@ endforeach()
 ###############################################################################
 
 #Generate the shared library from the sources
-add_executable(RAIISingleton ${SOURCES})
+add_executable(SingletonC++11 ${SOURCES})
 
 #Set Debug or Release
 set(CMAKE_BUILD_TYPE Debug)
@@ -33,14 +33,14 @@ set(CMAKE_BUILD_TYPE Debug)
 ###############################################################################
 
 #enable c++11 and set it required
-set_property(TARGET RAIISingleton PROPERTY CXX_STANDARD 11)
-set_property(TARGET RAIISingleton PROPERTY CXX_STANDARD_REQUIRED ON)
+set_property(TARGET SingletonC++11 PROPERTY CXX_STANDARD 11)
+set_property(TARGET SingletonC++11 PROPERTY CXX_STANDARD_REQUIRED ON)
 
 ###############################################################################
 ## dependencies ###############################################################
 ###############################################################################
 
-target_link_libraries(RAIISingleton)
+target_link_libraries(SingletonC++11)
 
 ###############################################################################
 ## clean ######################################################################

@@ -1,5 +1,5 @@
-#ifndef _RAAISINGLETON_OPENFILE_H_
-#define _RAAISINGLETON_OPENFILE_H_
+#ifndef _SINGLETON_OPENFILE_H_
+#define _SINGLETON_OPENFILE_H_
 
 #include <mutex>
 #include <iostream>
@@ -17,8 +17,6 @@ class File
  private:
      static File * instance;
      File();
-     File(File const&);
-     void operator=(File const&);
  };
 
-#endif // _RAAISINGLETON_OPENFILE_H_
+#endif // _SINGLETON_OPENFILE_H_
