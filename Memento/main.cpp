@@ -13,18 +13,18 @@
 using namespace std;
 
 int main() {
-	std::string val = "begin";
+	std::string val = "Active";
 
 	Text _txt(val); // create Text class with initial string of val
-	cout << _txt.getText() <<std::endl; // begin
-	CareTaker::getInstance()->_textMemento = _txt.createMemento(); // save the initial string to a memento
+	cout << "The initial value is " << _txt.getText() <<std::endl; // active
 
 	/**
 	 * Save state
 	 */
-	val = "changed"; // change the string of val
+	CareTaker::getInstance()->_textMemento = _txt.createMemento(); // save the initial string to a memento
+	val = "Inactive"; // change the string of val
 	_txt.setText(val); // set the modified val to txt object
-	cout << _txt.getText() <<std::endl; // changed
+	cout << "The value is changed to " << _txt.getText() <<std::endl; // inactive
 
 	/**
 	 * Restore state
@@ -32,7 +32,7 @@ int main() {
 	TextMemento txtMem = _txt.createMemento(); // store the modified txt state to a temp memento
 	_txt.reinstateMemento(CareTaker::getInstance()->_textMemento); // reinstate the txt to previous state
 	CareTaker::getInstance()->_textMemento = txtMem; // store the temp memento to a caretaker
-	cout << _txt.getText() << std::endl; // begin
+	cout << "The value is rolled back to " << _txt.getText() << std::endl; // active
 
 	return 0;
 }
