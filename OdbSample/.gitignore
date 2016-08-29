@@ -1,0 +1,14 @@
+/CMakeFiles/
+/Makefile
+/CMakeCache.txt
+/cmake_install.cmake
+/.cproject
+/.project
+/build/
+/test/build
+/doxy/html/
+/doxy/man/
+/doxy/latex/
+/doxy/rtf/
+OdbSample
+.vscode
