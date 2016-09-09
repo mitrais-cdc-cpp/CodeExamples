@@ -1,4 +1,4 @@
-# Muliple Inheritance
+# Multiple Inheritance
 Multiple inheritance enables a derived class to inherit members from more than one parent.
 
 Let’s say we wanted to write a program to keep track of a bunch of teachers. A teacher is a person. However, a teacher is also an employee (they are their own employer if working for themselves). Multiple inheritance can be used to create a Teacher class that inherits properties from both Person and Employee. To use multiple inheritance, simply specify each base class (just like in single inheritance), separated by a comma.
