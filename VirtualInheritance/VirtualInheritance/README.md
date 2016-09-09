@@ -55,12 +55,15 @@ int main()
 {
     Copier cCopier(1, 2, 3);
 }
+```
 
 This produces the result:
+
 ```C++
 PoweredDevice: 3
 Scanner: 1
 PoweredDevice: 3
+Printer: 2
 ```
 
 As you can see, PoweredDevice got constructed twice.
@@ -68,7 +71,6 @@ As you can see, PoweredDevice got constructed twice.
 While this is sometimes what you want, other times you may want only one copy of PoweredDevice to be shared by both Scanner and Printer. To share a base class, simply insert the “virtual” keyword in the inheritance list of the derived class. This creates what is called a virtual base class, which means there is only one base object that is shared. Here is the an example (without constructors for simplicity) showing how to use to virtual keyword to create a shared base class:
 
 ```C++
-
 class PoweredDevice
 {
 };
@@ -136,9 +138,9 @@ int main()
 {
     Copier cCopier(1, 2, 3);
 }
-``
+```
 
-produces the result:
+Produces the result:
 
 ```C++
 PoweredDevice: 3
