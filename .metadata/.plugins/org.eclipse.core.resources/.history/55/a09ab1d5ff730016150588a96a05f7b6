@@ -1,0 +1,10 @@
+/.cproject
+/.project
+/CMakeFiles/
+/cmake_install.cmake
+/.settings/
+/CMakeCache.txt
+/Makefile
+/doxy/html/
+/doxy/latex/
+/rof

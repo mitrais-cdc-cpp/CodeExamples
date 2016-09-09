@@ -1,0 +1,10 @@
+
+#ifndef INC_SCENARIO3_ANIMAL_HPP_
+#define INC_SCENARIO3_ANIMAL_HPP_
+
+namespace scenario3
+{
+
+}
+
+#endif /* INC_SCENARIO3_ANIMAL_HPP_ */

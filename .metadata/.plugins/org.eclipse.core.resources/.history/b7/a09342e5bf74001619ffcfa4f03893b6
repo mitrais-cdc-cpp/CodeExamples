@@ -1,0 +1,25 @@
+#include "../../inc/scenario1/staff.hpp"
+
+using namespace scenario1;
+
+staff::staff(std::string staffName, std::time_t joinDate)
+{
+	this->id = id;
+	this->name = name;
+}
+
+staff::~staff()
+{
+
+}
+
+void staff::show
+{
+	std::cout << "Id : " << this->id << std::endl;
+}
+
+void individual::showName()
+{
+	std::cout << "Name : " << this->name << std::endl;
+}
+

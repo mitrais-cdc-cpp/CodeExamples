@@ -1,0 +1,11 @@
+#include <iostream>
+#include <string>
+
+#include "../../inc/InheritFromMultipleParents/Ovipar.hpp"
+
+using namespace InheritFromMultipleParents;
+
+std::string Ovipar::getDescription()
+{
+	return descriptionl
+}

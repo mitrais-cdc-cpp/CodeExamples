@@ -1,0 +1,6 @@
+Multiple inheritance is a feature of some object-oriented computer programming languages in which an object or class can inherit characteristics and features from more than one parent object or parent class.
+
+C++ supports multiple inheritance.
+
+Below are 3 possible scenarios of multiple inheritance.
+1. A class is derived from 2 super classes which contain different characteristics and features.

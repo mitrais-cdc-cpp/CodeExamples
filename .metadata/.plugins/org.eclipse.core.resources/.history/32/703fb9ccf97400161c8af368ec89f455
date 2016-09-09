@@ -1,0 +1,9 @@
+#include "../../inc/scenario3/animal.hpp"
+
+using namespace scenario3;
+
+animal::animal(std::string name)
+{
+	this->name = name;
+	this->type = "animal";
+}

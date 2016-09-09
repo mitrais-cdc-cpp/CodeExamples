@@ -1,0 +1,18 @@
+#include "../../inc/scenario3b/ovovivipar.hpp"
+
+using namespace scenario3b;
+
+// note: all the parent classes are called here
+ovovivipar::ovovivipar(std::string name)
+//:animal(name)
+:vivipar(name)
+,ovipar(name)
+{
+
+}
+
+ovovivipar::~ovovivipar()
+{
+
+}
+

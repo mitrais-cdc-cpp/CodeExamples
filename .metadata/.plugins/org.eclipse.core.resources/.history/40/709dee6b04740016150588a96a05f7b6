@@ -1,0 +1,34 @@
+/*
+ * Ovipar.hpp
+ *
+ *  Created on: Sep 6, 2016
+ *      Author: developer
+ */
+
+#ifndef INC_INHERITFROMMULTIPLEPARENTS_OVIPAR_HPP_
+#define INC_INHERITFROMMULTIPLEPARENTS_OVIPAR_HPP_
+
+#include <iostream>
+#include <string>
+
+namespace InheritFromMultipleParents
+{
+	class Ovipar
+	{
+		public:
+			//Ovipar(std::int id);
+			//virtual ~Ovipar();
+
+			std::long getId();
+			std::string getDescription();
+			void makeMovement();
+			void makeSound();
+
+		private:
+			std::long id;
+			std::string description;
+	};
+}
+
+
+#endif /* INC_INHERITFROMMULTIPLEPARENTS_OVIPAR_HPP_ */

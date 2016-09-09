@@ -1,0 +1,3 @@
+#include "../../inc/scenario3/animal.hpp"
+
+using namespace scenario3;

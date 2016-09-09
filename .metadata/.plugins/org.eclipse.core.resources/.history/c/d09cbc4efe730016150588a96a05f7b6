@@ -1,0 +1,21 @@
+/*
+ * Ovipar.hpp
+ *
+ *  Created on: Sep 6, 2016
+ *      Author: developer
+ */
+
+#ifndef INC_OVIPAR_HPP_
+#define INC_OVIPAR_HPP_
+
+namespace learning
+{
+	public class Ovipar
+	{
+
+	};
+}
+
+
+
+#endif /* INC_OVIPAR_HPP_ */

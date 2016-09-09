@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+
+#include "../../inc/InheritFromMultipleParents/Ovipar.hpp"
+
+using namespace InheritFromMultipleParents;
+
+std::string Ovipar::getDescription()
+{
+	return description;
+}
+
+void Ovipar::makeMovement()
+{
+	std::cout << "Flying..." << std::endl;
+}

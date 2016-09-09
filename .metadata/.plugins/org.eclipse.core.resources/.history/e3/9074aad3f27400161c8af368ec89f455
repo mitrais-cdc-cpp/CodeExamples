@@ -1,0 +1,4 @@
+#include "../../inc/scenario2/truck.hpp"
+
+using namespace scenario2;
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>130</x>
+      <y>240</y>
+      <w>450</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Fire-Engine
+--
+
+--
++Fire-Engine(plateNumber,fuelCapacity,ladderHeight)
+
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>50</y>
+      <w>270</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Truck
+--
+#plateNumber: string
+#fuelCapacity: long
+--
++Truck(plateNumber,fuelCapacity)
++showPlateNumber()
++showFuelCapacity()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>50</y>
+      <w>290</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>Elevator
+--
+#ladderHeight: int
+#fuelCapacity: long
+--
++Elevator(ladderHeight,fuelCapacity)
++showLadderHeight()
++showFuelCapacity()
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>170</y>
+      <w>210</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=yellow</panel_attributes>
+    <additional_attributes>10.0;10.0;190.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>350</x>
+      <y>170</y>
+      <w>170</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+bg=yellow</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>50</x>
+      <y>0</y>
+      <w>230</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Potential problem : ambiguity
+style=wordwrap
+bg=black
+fg=gray</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
