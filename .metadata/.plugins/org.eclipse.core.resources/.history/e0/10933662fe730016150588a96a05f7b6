@@ -1,0 +1,24 @@
+/*
+ * Ovipar.hpp
+ *
+ *  Created on: Sep 6, 2016
+ *      Author: developer
+ */
+
+#ifndef INC_OVIPAR_HPP_
+#define INC_OVIPAR_HPP_
+
+#include <iostream>
+
+namespace learning
+{
+	public class Ovipar
+	{
+	public:
+		std::string getDescription();
+		void makeMovement();
+
+	};
+}
+
+#endif /* INC_OVIPAR_HPP_ */

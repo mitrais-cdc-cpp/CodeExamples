@@ -1,0 +1,18 @@
+
+#ifndef INC_SCENARIO2_TRUCK_HPP_
+#define INC_SCENARIO2_TRUCK_HPP_
+
+
+
+namespace scenario2
+{
+	class truck
+	{
+		public:
+
+		protected:
+
+	};
+}
+
+#endif /* INC_SCENARIO2_TRUCK_HPP_ */

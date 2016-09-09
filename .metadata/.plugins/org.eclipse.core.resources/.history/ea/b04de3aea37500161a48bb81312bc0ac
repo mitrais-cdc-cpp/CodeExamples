@@ -1,0 +1,29 @@
+Multiple inheritance is a feature of some object-oriented computer programming languages in which an object or class can inherit characteristics and features from more than one parent object or parent class.
+
+C++ supports multiple inheritance.
+
+Below are 3 possible scenarios of multiple inheritance.
+1. A class is derived from 2 super classes which contain different set of characteristics and features.
+super class Individual: id, name, showId(), showName().
+super class Staff: staffId, joinDate, showStaffId(), showJoinDate().
+Problem: no problem. When a sub class called Front-Officer inherits the both super classes, it is easy to be understood that it inherits all the characteristics and features of the super classes. There is no potential conflict/ambiguity to call them.
+
+2. A class is derived from 2 super classes which contain at least one the same characteristic or feature.
+super class Truck: plateNumber, fuelCapacity, showPlateNumber(), showFuelCapacity().
+super class Elevator: ladderHeight, fuelCapacity, showLadderHeight, showFuelCapacity().
+a sub class called Fire-Engine inherits the both super classes.
+
+Problem: there is a potential ambiguity when calling showFuelCapacity() of the Fire-Engine whether it belongs to the super class Truck or Elevator
+Solution: use explicit qualification, i.e. which method to call whether it is the one belongs to Truck or Elevator. It is done by mentioning the super class
+
+3. A diamond problem: A sub class inherits two super classes which the two super classes inherit a single top super class.
+top super class Animal: name, type, showName(), showType(), makeMovement().
+super class Ovipar: inherits Animal and also introduces another new method produceEgg()
+super class Vivipar: inherits Animal and also introduces another new method deliverBaby().
+a sub class Ovovivipar: inherits both Ovipar and Vivipar super classes.
+
+Problem: there is a potential ambiguity when calling makeMovement() of the sub class Ovovivipar whether it belongs to the super class Ovipar or Vivipar or even the top super class Animal.
+Solution: 
+a. call the direct parent constructor on the class definition and then use explicit qualification when using it
+b. apply virtual inheritance on the super classes that inherit the same top super class, call all the super classes' constructor on the class definition and then call the expected method names. The method can call from any super class.
+

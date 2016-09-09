@@ -1,0 +1,66 @@
+#include <iostream>
+
+#include "inc/scenario1/individual.hpp"
+#include "inc/scenario1/staff.hpp"
+#include "inc/scenario1/frontOfficer.hpp"
+
+#include "inc/scenario3/ovipar.hpp"
+#include "inc/scenario3/ovovivipar.hpp"
+#include "inc/scenario3/vivipar.hpp"
+
+void scenario1Sample()
+{
+	namespace s1 = scenario1;
+
+	std::cout<< "Sample of multiple inheritance Scenario 1:" << std::endl << std::endl;
+
+	s1::individual bob("i10", "Bob");
+	bob.showId();
+	bob.showName();
+	std::cout<< std::endl;
+
+	std::time_t joinDate = time(0);
+
+	s1::staff john("s90", joinDate);
+	john.showStaffId();
+	john.showJoinDate();
+	std::cout<< std::endl;
+
+	s1::frontOfficer fo("i10", "Bob", "s90", joinDate);
+	fo.showId();
+	fo.showName();
+	fo.showStaffId();
+	fo.showJoinDate();
+	std::cout<< std::endl;
+}
+
+void scenario3Sample()
+{
+	namespace s3 = scenario3;
+
+	std::cout<< "Sample of multiple inheritance Scenario 2:" << std::endl << std::endl;
+
+	s3::ovipar duck("DUCK");
+	duck.showName();
+	duck.showDescription();
+	duck.makeMovement();
+	duck.makeSound();
+	std::cout<< std::endl;
+
+	s3::vivipar tiger("TIGER");
+	tiger.showName();
+	tiger.showDescription();
+	tiger.makeMovement();
+	tiger.makeSound();
+	std::cout<< std::endl;
+
+	//s2::Ovovivipar shark("SHARK");
+}
+
+int main()
+{
+	scenario1Sample();
+	scenario2Sample();
+
+	return 0;
+}

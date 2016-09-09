@@ -1,0 +1,29 @@
+#include "../../inc/InheritFromMultipleParents/Vivipar.hpp"
+
+using namespace InheritFromMultipleParents;
+
+Vivipar::Vivipar(int id)
+{
+	this->id = id;
+	this->description = "Viviparous is kind of zoo that bringing forth live young developed inside the body of the parent.";
+}
+
+std::string Vivipar::getDescription()
+{
+	return this->description;
+}
+
+void Vivipar::makeMovement()
+{
+	std::cout << "Running..." << std::endl;
+}
+
+void Vivipar::makeSound()
+{
+	std::cout << "Roar...roar..." << std::endl;
+}
+
+Vivipar::~Vivipar()
+{
+
+}

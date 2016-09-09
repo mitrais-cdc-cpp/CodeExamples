@@ -1,0 +1,23 @@
+#include "../../inc/scenario3/ovovivipar.hpp"
+
+using namespace scenario3;
+
+
+ovovivipar::ovovivipar(std::string name)
+/*
+note: calling :animal(name) will throw a compilation error below
+error: type ‘scenario3::animal’ is not a direct base of ‘scenario3::ovovivipar’
+:animal(name)
+ ^
+*/
+
+:vivipar(name)
+,ovipar(name)
+{
+
+}
+
+ovovivipar::~ovovivipar()
+{
+
+}

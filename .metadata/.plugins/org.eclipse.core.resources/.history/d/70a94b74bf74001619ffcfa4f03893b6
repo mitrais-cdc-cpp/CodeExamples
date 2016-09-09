@@ -1,0 +1,3 @@
+#include "../../inc/scenario1/individual.hpp"
+
+using namespace scenario1;

@@ -1,0 +1,22 @@
+/*
+ * Ovovivipar.hpp
+ *
+ *  Created on: Sep 6, 2016
+ *      Author: developer
+ */
+
+#ifndef INC_INHERITFROMMULTIPLEPARENTS_OVOVIVIPAR_HPP_
+#define INC_INHERITFROMMULTIPLEPARENTS_OVOVIVIPAR_HPP_
+
+#include "Ovipar.hpp"
+#include "Vivipar.hpp"
+
+namespace InheritFromMultipleParents
+{
+	public class Ovovivipar: public Ovipar, public Vivipar
+	{
+	};
+}
+
+
+#endif /* INC_INHERITFROMMULTIPLEPARENTS_OVOVIVIPAR_HPP_ */

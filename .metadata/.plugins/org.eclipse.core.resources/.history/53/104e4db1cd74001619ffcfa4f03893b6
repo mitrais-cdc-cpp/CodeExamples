@@ -1,0 +1,16 @@
+#ifndef INC_SCENARIO3_OVOVIVIPAR_HPP_
+#define INC_SCENARIO3_OVOVIVIPAR_HPP_
+
+#include "../scenario3/ovipar.hpp"
+#include "../scenario3/vivipar.hpp"
+
+namespace scenario2
+{
+	class ovovivipar: public ovipar, public vivipar
+	{
+		public:
+			ovovivipar(std::string name);
+	};
+}
+
+#endif /* INC_SCENARIO3_OVOVIVIPAR_HPP_ */

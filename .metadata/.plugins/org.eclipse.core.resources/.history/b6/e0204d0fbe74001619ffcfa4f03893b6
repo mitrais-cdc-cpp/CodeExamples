@@ -1,0 +1,29 @@
+/*
+ * staff.hpp
+ *
+ *  Created on: Sep 7, 2016
+ *      Author: developer
+ */
+
+#ifndef INC_SCENARIO1_STAFF_HPP_
+#define INC_SCENARIO1_STAFF_HPP_
+
+namespace scenario1
+{
+	class individual
+	{
+		public:
+			individual(std::string id, std::string name)
+			virtual ~individual();
+			virtual void showId();
+			virtual void showName();
+
+		protected:
+			std::string id;
+			std::string name;
+	};
+}
+
+
+
+#endif /* INC_SCENARIO1_STAFF_HPP_ */

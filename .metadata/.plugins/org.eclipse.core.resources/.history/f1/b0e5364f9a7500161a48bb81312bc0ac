@@ -1,0 +1,26 @@
+#include "../../inc/scenario3b/ovovivipar.hpp"
+
+using namespace scenario3b;
+
+//ovovivipar::ovovivipar(std::string name)
+//{
+//
+//}
+//
+//ovovivipar::~ovovivipar()
+//{
+//
+//}
+
+ovovivipar::ovovivipar(std::string name)::ovipar::animal(name)
+{
+
+}
+
+
+
+ovovivipar::~ovovivipar()
+{
+
+}
+

@@ -1,0 +1,20 @@
+#include "../../inc/scenario3/ovovivipar.hpp"
+
+using namespace scenario3;
+
+ovovivipar::ovovivipar(std::string name)
+:vivipar(name)
+,ovipar(name)
+{
+
+}
+
+ovovivipar::~ovovivipar()
+{
+
+}
+
+void ovovivipar::makeMovement()
+{
+
+}

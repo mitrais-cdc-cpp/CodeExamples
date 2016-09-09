@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+
+#include "../../inc/InheritFromMultipleParents/Ovipar.hpp"
+
+using namespace InheritFromMultipleParents;
+
+Ovipar::Ovipar(int id)
+{
+	this->m_id = id;
+}
+
+std::string Ovipar::getDescription()
+{
+	return m_description;
+}
+
+void Ovipar::makeMovement()
+{
+	std::cout << "Flying..." << std::endl;
+}
+
+void Ovipar::makeSound()
+{
+	std::cout << "Kwak..kwak.." << std::endl;
+}

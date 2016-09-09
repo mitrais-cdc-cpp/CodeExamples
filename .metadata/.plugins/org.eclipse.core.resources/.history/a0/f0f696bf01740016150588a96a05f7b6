@@ -1,0 +1,32 @@
+/*
+ * Vivipar.hpp
+ *
+ *  Created on: Sep 6, 2016
+ *      Author: developer
+ */
+
+#ifndef INC_INHERITFROMMULTIPLEPARENTS_VIVIPAR_HPP_
+#define INC_INHERITFROMMULTIPLEPARENTS_VIVIPAR_HPP_
+
+
+namespace InheritFromMultipleParents
+{
+	class Vivipar
+	{
+	public:
+		Vivipar(std::int id, std::string description);
+		~virtual Vivipar();
+
+		std::int getId();
+		std::string getDescription();
+		void makeMovement();
+		void makeSound();
+
+	private:
+		std::int id;
+		std::string description;
+	};
+}
+
+
+#endif /* INC_INHERITFROMMULTIPLEPARENTS_VIVIPAR_HPP_ */

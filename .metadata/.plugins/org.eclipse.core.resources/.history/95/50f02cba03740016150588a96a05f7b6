@@ -1,0 +1,8 @@
+#include "../../inc/InheritFromMultipleParents/Ovipar.hpp"
+
+#include <iostream>
+#include <string>
+
+using namespace InheritFromMultipleParents;
+
+

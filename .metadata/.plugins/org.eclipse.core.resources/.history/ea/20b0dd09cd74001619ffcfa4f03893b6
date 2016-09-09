@@ -1,0 +1,34 @@
+#include "../../inc/scenario2/ovipar.hpp"
+
+using namespace scenario2;
+
+ovipar::ovipar(std::string name)
+{
+	this->name = name;
+	this->description = "oviparous is a kind of zoo producing young by means of eggs";
+}
+
+void ovipar::showName()
+{
+	std::cout << this->name << std::endl;
+}
+
+void ovipar::showDescription()
+{
+	std::cout << this->description << std::endl;
+}
+
+void ovipar::makeMovement()
+{
+	std::cout << "Flying..." << std::endl;
+}
+
+void ovipar::makeSound()
+{
+	std::cout << "Kwak..kwak.." << std::endl;
+}
+
+ovipar::~ovipar()
+{
+
+}

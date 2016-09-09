@@ -1,0 +1,80 @@
+#include "../../inc/InheritFromMultipleParents/Ovovivipar.hpp"
+
+using namespace InheritFromMultipleParents;
+
+#include <string>
+
+//Ovovivipar::Ovovivipar(std::string name)
+//{
+//	this->name = name;
+//	this->description = description;
+//}
+
+//
+//
+//// Ovipar implementation
+Ovovivipar::Ovipar::Ovipar(std::string name)
+{
+	this->name = name;
+	this->description = "Oviparous is a kind of zoo producing young by means of eggs";
+}
+//
+//void Ovovivipar::Ovipar::showName()
+//{
+//	std::cout << this->name << std::endl;
+//}
+//
+//void Ovovivipar::Ovipar::showDescription()
+//{
+//	std::cout << this->description << std::endl;
+//}
+//
+//void Ovovivipar::Ovipar::makeMovement()
+//{
+//	std::cout << "Flying..." << std::endl;
+//}
+//
+//void Ovovivipar::Ovipar::makeSound()
+//{
+//	std::cout << "Kwak..kwak.." << std::endl;
+//}
+//
+//Ovovivipar::Ovipar::~Ovipar()
+//{
+//
+//}
+//
+//
+//
+//// Vivipar implementation
+//
+Ovovivipar::Vivipar::Vivipar(std::string name)
+{
+	this->name = name;
+	this->description = "Viviparous is kind of zoo bringing forth live young developed inside the body of the parent.";
+}
+//
+//void Ovovivipar::Vivipar::showName()
+//{
+//	std::cout << this->name << std::endl;
+//}
+//
+//void Ovovivipar::Vivipar::showDescription()
+//{
+//	std::cout << this->description << std::endl;
+//}
+//
+//void Ovovivipar::Vivipar::makeMovement()
+//{
+//	std::cout << "Running..." << std::endl;
+//}
+//
+//void Ovovivipar::Vivipar::makeSound()
+//{
+//	std::cout << "Roar...roar..." << std::endl;
+//}
+//
+//Ovovivipar::Vivipar::~Vivipar()
+//{
+//
+//}

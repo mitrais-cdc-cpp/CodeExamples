@@ -1,0 +1,25 @@
+
+#ifndef INC_SCENARIO2_ELEVATOR_HPP_
+#define INC_SCENARIO2_ELEVATOR_HPP_
+
+#include <iostream>
+
+namespace scenario2
+{
+	class elevator
+	{
+		public:
+			elevator(std::string plateNumber, long fuelCapacity);
+			virtual ~elevator();
+
+			virtual void showPlateNumber();
+			virtual void showFuelCapacity();
+
+		protected:
+			std::string plateNumber;
+			long fuelCapacity;
+
+	};
+}
+
+#endif /* INC_SCENARIO2_ELEVATOR_HPP_ */
