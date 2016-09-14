@@ -1,3 +1,0 @@
-#include "../../inc/InheritFromMultipleParents/Ovovivipar.hpp"
-
-using namespace InheritFromMultipleParents;

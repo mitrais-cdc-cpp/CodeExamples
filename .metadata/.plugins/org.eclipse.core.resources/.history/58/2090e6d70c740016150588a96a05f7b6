@@ -1,9 +1,0 @@
-#include "../../inc/InheritFromMultipleParents/Ovovivipar.hpp"
-
-using namespace InheritFromMultipleParents;
-
-
-Ovovivipar::Ovipar(std::string name)
-{
-	this->Ovipar(name);
-}

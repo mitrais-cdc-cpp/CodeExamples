@@ -1,9 +1,0 @@
-#include "../../inc/scenario2/truck.hpp"
-
-using namespace scenario2;
-
-truck::truck(std::string plateNumber, long fuelCapacity)
-{
-	this->plateNumber = plateNumber;
-	this->fuelCapacity = fuelCapacity;
-}

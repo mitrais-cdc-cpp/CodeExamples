@@ -1,4 +1,0 @@
-#include "../../inc/scenario2/fireEngine.hpp"
-
-using namespace scenario2;
-

@@ -1,9 +1,0 @@
-#include "../../inc/scenario2/elevator.hpp"
-
-using namespace scenario2;
-
-elevator::elevator(int ladderHeight, long fuelCapacity)
-{
-	this->ladderHeight = ladderHeight;
-	this->fuelCapacity = fuelCapacity;
-}

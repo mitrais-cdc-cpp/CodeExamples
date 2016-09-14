@@ -1,3 +1,0 @@
-#include "../../inc/scenario1/frontOfficer.hpp"
-
-using namespace scenario1;
