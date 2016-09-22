@@ -104,27 +104,27 @@ namespace odb
 
 #include <odb/details/buffer.hxx>
 
-#include <odb/mysql/version.hxx>
-#include <odb/mysql/forward.hxx>
-#include <odb/mysql/binding.hxx>
-#include <odb/mysql/mysql-types.hxx>
-#include <odb/mysql/query.hxx>
+#include <odb/mssql/version.hxx>
+#include <odb/mssql/forward.hxx>
+#include <odb/mssql/binding.hxx>
+#include <odb/mssql/mssql-types.hxx>
+#include <odb/mssql/query.hxx>
 
 namespace odb
 {
   // person
   //
   template <typename A>
-  struct query_columns< ::person, id_mysql, A >
+  struct query_columns< ::person, id_mssql, A >
   {
     // id
     //
     typedef
-    mysql::query_column<
-      mysql::value_traits<
+    mssql::query_column<
+      mssql::value_traits<
         long unsigned int,
-        mysql::id_ulonglong >::query_type,
-      mysql::id_ulonglong >
+        mssql::id_bigint >::query_type,
+      mssql::id_bigint >
     id_type_;
 
     static const id_type_ id;
@@ -132,11 +132,11 @@ namespace odb
     // first
     //
     typedef
-    mysql::query_column<
-      mysql::value_traits<
+    mssql::query_column<
+      mssql::value_traits<
         ::std::string,
-        mysql::id_string >::query_type,
-      mysql::id_string >
+        mssql::id_string >::query_type,
+      mssql::id_string >
     first_type_;
 
     static const first_type_ first;
@@ -144,11 +144,11 @@ namespace odb
     // last
     //
     typedef
-    mysql::query_column<
-      mysql::value_traits<
+    mssql::query_column<
+      mssql::value_traits<
         ::std::string,
-        mysql::id_string >::query_type,
-      mysql::id_string >
+        mssql::id_string >::query_type,
+      mssql::id_string >
     last_type_;
 
     static const last_type_ last;
@@ -156,51 +156,55 @@ namespace odb
     // age
     //
     typedef
-    mysql::query_column<
-      mysql::value_traits<
+    mssql::query_column<
+      mssql::value_traits<
         short unsigned int,
-        mysql::id_ushort >::query_type,
-      mysql::id_ushort >
+        mssql::id_smallint >::query_type,
+      mssql::id_smallint >
     age_type_;
 
     static const age_type_ age;
   };
 
   template <typename A>
-  const typename query_columns< ::person, id_mysql, A >::id_type_
-  query_columns< ::person, id_mysql, A >::
-  id (A::table_name, "`id`", 0);
+  const typename query_columns< ::person, id_mssql, A >::id_type_
+  query_columns< ::person, id_mssql, A >::
+  id (A::table_name, "[id]", 0);
 
   template <typename A>
-  const typename query_columns< ::person, id_mysql, A >::first_type_
-  query_columns< ::person, id_mysql, A >::
-  first (A::table_name, "`first`", 0);
+  const typename query_columns< ::person, id_mssql, A >::first_type_
+  query_columns< ::person, id_mssql, A >::
+  first (A::table_name, "[first]", 0, 512);
 
   template <typename A>
-  const typename query_columns< ::person, id_mysql, A >::last_type_
-  query_columns< ::person, id_mysql, A >::
-  last (A::table_name, "`last`", 0);
+  const typename query_columns< ::person, id_mssql, A >::last_type_
+  query_columns< ::person, id_mssql, A >::
+  last (A::table_name, "[last]", 0, 512);
 
   template <typename A>
-  const typename query_columns< ::person, id_mysql, A >::age_type_
-  query_columns< ::person, id_mysql, A >::
-  age (A::table_name, "`age`", 0);
+  const typename query_columns< ::person, id_mssql, A >::age_type_
+  query_columns< ::person, id_mssql, A >::
+  age (A::table_name, "[age]", 0);
 
   template <typename A>
-  struct pointer_query_columns< ::person, id_mysql, A >:
-    query_columns< ::person, id_mysql, A >
+  struct pointer_query_columns< ::person, id_mssql, A >:
+    query_columns< ::person, id_mssql, A >
   {
   };
 
   template <>
-  class access::object_traits_impl< ::person, id_mysql >:
+  class access::object_traits_impl< ::person, id_mssql >:
     public access::object_traits< ::person >
   {
     public:
+    static const std::size_t batch = 1UL;
+
+    static const bool rowversion = false;
+
     struct id_image_type
     {
-      unsigned long long id_value;
-      my_bool id_null;
+      long long id_value;
+      SQLLEN id_size_ind;
 
       std::size_t version;
     };
@@ -209,27 +213,33 @@ namespace odb
     {
       // id_
       //
-      unsigned long long id_value;
-      my_bool id_null;
+      long long id_value;
+      SQLLEN id_size_ind;
 
       // first_
       //
-      details::buffer first_value;
-      unsigned long first_size;
-      my_bool first_null;
+      char first_value[513];
+      SQLLEN first_size_ind;
 
       // last_
       //
-      details::buffer last_value;
-      unsigned long last_size;
-      my_bool last_null;
+      char last_value[513];
+      SQLLEN last_size_ind;
 
       // age_
       //
-      unsigned short age_value;
-      my_bool age_null;
+      short age_value;
+      SQLLEN age_size_ind;
 
       std::size_t version;
+
+      mssql::change_callback change_callback_;
+
+      mssql::change_callback*
+      change_callback ()
+      {
+        return &change_callback_;
+      }
     };
 
     struct extra_statement_cache_type;
@@ -242,22 +252,18 @@ namespace odb
     static id_type
     id (const image_type&);
 
-    static bool
-    grow (image_type&,
-          my_bool*);
-
     static void
-    bind (MYSQL_BIND*,
+    bind (mssql::bind*,
           image_type&,
-          mysql::statement_kind);
+          mssql::statement_kind);
 
     static void
-    bind (MYSQL_BIND*, id_image_type&);
+    bind (mssql::bind*, id_image_type&);
 
-    static bool
+    static void
     init (image_type&,
           const object_type&,
-          mysql::statement_kind);
+          mssql::statement_kind);
 
     static void
     init (object_type&,
@@ -267,9 +273,9 @@ namespace odb
     static void
     init (id_image_type&, const id_type&);
 
-    typedef mysql::object_statements<object_type> statements_type;
+    typedef mssql::object_statements<object_type> statements_type;
 
-    typedef mysql::query_base query_base_type;
+    typedef mssql::query_base query_base_type;
 
     static const std::size_t column_count = 4UL;
     static const std::size_t id_column_count = 1UL;
@@ -331,14 +337,14 @@ namespace odb
 
   template <>
   class access::object_traits_impl< ::person, id_common >:
-    public access::object_traits_impl< ::person, id_mysql >
+    public access::object_traits_impl< ::person, id_mssql >
   {
   };
 
   // person_stat
   //
   template <>
-  class access::view_traits_impl< ::person_stat, id_mysql >:
+  class access::view_traits_impl< ::person_stat, id_mssql >:
     public access::view_traits< ::person_stat >
   {
     public:
@@ -346,35 +352,39 @@ namespace odb
     {
       // count
       //
-      unsigned long long count_value;
-      my_bool count_null;
+      long long count_value;
+      SQLLEN count_size_ind;
 
       // min_age
       //
-      unsigned short min_age_value;
-      my_bool min_age_null;
+      short min_age_value;
+      SQLLEN min_age_size_ind;
 
       // max_age
       //
-      unsigned short max_age_value;
-      my_bool max_age_null;
+      short max_age_value;
+      SQLLEN max_age_size_ind;
 
       std::size_t version;
+
+      mssql::change_callback change_callback_;
+
+      mssql::change_callback*
+      change_callback ()
+      {
+        return &change_callback_;
+      }
     };
 
-    typedef mysql::view_statements<view_type> statements_type;
+    typedef mssql::view_statements<view_type> statements_type;
 
-    typedef mysql::query_base query_base_type;
+    typedef mssql::query_base query_base_type;
     struct query_columns;
 
     static const bool versioned = false;
 
-    static bool
-    grow (image_type&,
-          my_bool*);
-
     static void
-    bind (MYSQL_BIND*,
+    bind (mssql::bind*,
           image_type&);
 
     static void
@@ -393,7 +403,7 @@ namespace odb
 
   template <>
   class access::view_traits_impl< ::person_stat, id_common >:
-    public access::view_traits_impl< ::person_stat, id_mysql >
+    public access::view_traits_impl< ::person_stat, id_mssql >
   {
   };
 
@@ -401,11 +411,11 @@ namespace odb
   //
   // person_stat
   //
-  struct access::view_traits_impl< ::person_stat, id_mysql >::query_columns:
+  struct access::view_traits_impl< ::person_stat, id_mssql >::query_columns:
     odb::pointer_query_columns<
       ::person,
-      id_mysql,
-      odb::access::object_traits_impl< ::person, id_mysql > >
+      id_mssql,
+      odb::access::object_traits_impl< ::person, id_mssql > >
   {
   };
 }

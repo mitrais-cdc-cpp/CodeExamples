@@ -8,7 +8,7 @@
 #ifndef DATABASE_HXX
 #define DATABASE_HXX
 
-#define DATABASE_MYSQL
+#define DATABASE_MSSQL
 
 #include <string>
 #include <memory>   // std::auto_ptr
@@ -78,7 +78,7 @@ create_database (int& argc, char* argv[])
 #elif defined(DATABASE_ORACLE)
   auto_ptr<database> db (new odb::oracle::database (argc, argv));
 #elif defined(DATABASE_MSSQL)
-  auto_ptr<database> db (new odb::mssql::database (argc, argv));
+  auto_ptr<database> db (new odb::mssql::database ("sa", "N3mst4DB", "odb_test"));
 #endif
 
   return db;

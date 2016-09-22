@@ -52,7 +52,7 @@ namespace odb
   //
 
   inline
-  void access::object_traits_impl< ::person, id_mysql >::
+  void access::object_traits_impl< ::person, id_mssql >::
   erase (database& db, const object_type& obj)
   {
     callback (db, obj, callback_event::pre_erase);
@@ -61,7 +61,7 @@ namespace odb
   }
 
   inline
-  void access::object_traits_impl< ::person, id_mysql >::
+  void access::object_traits_impl< ::person, id_mssql >::
   load_ (statements_type& sts,
          object_type& obj,
          bool)
